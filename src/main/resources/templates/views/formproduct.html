@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo product</title>
+</head>
+<body>
+<form action="#" th:action="@{'/products/store'}" th:object="${product}" method="post">
+    <input  th:field="*{id}" placeholder="ID" type="text" />
+  <select  th:field="*{categoryID}" id="categoryID">
+    <option th:each="item : ${categories}" th:value="${item.id}" th:text="${item.title}"></option>
+  </select>
+    <input type="text" th:field="*{title}"  id="title" placeholder="Tên sản phẩm">
+    <input type="text" th:field="*{price}" id="price"  placeholder="Giá">
+    <input type="text" th:field="*{description}" id="description" placeholder="Mô tả">
+    <button type="submit">Tạo</button>
+</form>
+</body>
+</html>

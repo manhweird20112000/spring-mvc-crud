@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+<div>
+    <p>category list</p>
+
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Tên danh mục</th>
+            <th>Trạng thái</th>
+            <th>Mô tả</th>
+            <th>Thao tác</th>
+        </tr>
+        <tr th:each="item : ${categories}">
+            <td th:text="${item.getId()}"></td>
+            <td th:text="${item.getTitle()}"></td>
+            <td th:text="${item.getStatus()}"></td>
+            <td th:text="${item.getDescription()}"></td>
+            <td>
+                <a th:href="@{/products/{categoryID}(categoryID=${item.id})}">show products</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
